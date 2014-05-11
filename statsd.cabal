@@ -15,6 +15,12 @@ build-type:          Simple
 cabal-version:       >=1.8
 
 library
-  -- exposed-modules:     
+  hs-source-dirs:      src
+  exposed-modules:     Network.Statsd
   -- other-modules:       
   build-depends:       base ==4.5.*
+
+executable statsd
+  build-depends:       base ==4.5.*
+  main-is:             Network/Statsd/Tests.hs
+  hs-source-dirs:      src
