@@ -1,7 +1,8 @@
 module Network.Statsd where
 
 type Name = String
-type Value = Int
+type Value = Double
+type Tag = (String, String)
 
 data MetricType = Gauge | Counter | Timer deriving Show
-data Metric = Metric MetricType Name Value deriving Show
+data Metric = Metric MetricType Name Value [Tag] deriving Show
