@@ -3,6 +3,7 @@ module Network.Statsd.Parser (parseMetrics) where
 import Network.Statsd
 import Text.ParserCombinators.Parsec
 import Text.Parsec.Numbers
+import qualified Data.Map as Map
 
 parseMetrics :: String -> Either ParseError [Metric]
 parseMetrics input = parse parseString "(unknown)" input
@@ -22,7 +23,7 @@ parseMetric = do
     name <- parseName
     value <- parseValue
     metricType <- parseType
-    tags <- option [] parseTags
+    tags <- option Map.empty parseTags
     return $ Metric metricType name value tags
 
 parseName = do
@@ -40,11 +41,10 @@ parseType = do
     optional $ char '|'
     return $ mapType metricType
 
-parseTags :: GenParser Char st [(String, String)]
 parseTags = do
     char '#'
     tags <- many1 parseTag
-    return tags
+    return (Map.fromList tags)
 
 parseTag :: GenParser Char st (String, String)
 parseTag = do

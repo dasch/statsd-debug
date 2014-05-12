@@ -3,8 +3,9 @@ import Network.Statsd
 import Network.Statsd.Parser
 import Data.Either
 
+port = "8125"
+
 main = do
-    let port = "8125"
     addrinfos <- getAddrInfo (Just (defaultHints {addrFlags = [AI_PASSIVE]})) Nothing (Just port)
     let serveraddr = head addrinfos
     sock <- socket (addrFamily serveraddr) Datagram defaultProtocol

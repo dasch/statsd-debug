@@ -15,6 +15,6 @@ build-type:          Simple
 cabal-version:       >=1.8
 
 executable statsd-server
-  build-depends:       base ==4.5.*, network, parsec, ParsecTools
+  build-depends:       base ==4.5.*, containers, network, parsec, ParsecTools
   main-is:             Network/Statsd/Server.hs
   hs-source-dirs:      src
