@@ -18,3 +18,20 @@ executable statsd-server
   build-depends:       base ==4.6.*, containers, network, parsec, ParsecTools
   main-is:             Network/Statsd/Server.hs
   hs-source-dirs:      src
+
+test-suite Specs
+  hs-source-dirs: src spec
+  main-is: Spec.hs
+  Type: exitcode-stdio-1.0
+  build-depends:         base ==4.6.*
+                       , Cabal >= 1.16.0
+                       , containers
+                       , network
+                       , parsec
+                       , ParsecTools
+                       , parsec ==3.1.*
+                       , QuickCheck
+                       , hspec
+                       , test-framework
+                       , test-framework-quickcheck2
+                       , hspec-test-framework

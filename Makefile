@@ -1,5 +1,8 @@
 compile: src/**/*.hs
 	cabal build
 
-test: compile
+run: compile
 	./dist/build/statsd/statsd
+
+test: compile
+	cabal test
