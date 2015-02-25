@@ -37,7 +37,7 @@ parseValue = do
     return value
 
 parseType = do
-    metricType <- many1 $ noneOf "|\n"
+    metricType <- many1 $ noneOf "#|\n"
     optional $ char '|'
     return $ mapType metricType
 
