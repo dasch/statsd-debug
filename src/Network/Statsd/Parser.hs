@@ -21,19 +21,19 @@ parseLine = do
 
 parseMetric = do
     name <- parseName
+    char ':'
     value <- parseValue
+    char '|'
     metricType <- parseType
     tags <- option Map.empty parseTags
     return $ Metric metricType name value tags
 
 parseName = do
     name <- many1 $ noneOf ":\n"
-    char ':'
     return name
 
 parseValue = do
     value <- parseFloat
-    char '|'
     return value
 
 parseType = do
