@@ -1,3 +1,4 @@
+import System.IO
 import Network.Socket
 import Network.Statsd
 import Network.Statsd.Parser
@@ -15,6 +16,7 @@ main = do
 metricServer chan = do
     metric <- readChan chan
     print metric
+    hFlush stdout
     metricServer chan
 
 networkServer chan = do
