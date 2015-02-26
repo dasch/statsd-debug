@@ -17,5 +17,5 @@ RUN cabal configure
 ADD src /app/src
 RUN cabal build
 
-EXPOSE 8125
+EXPOSE 8125/udp
 ENTRYPOINT ["/app/dist/build/statsd-server/statsd-server"]
