@@ -7,7 +7,7 @@ type Name = String
 type Value = Double
 type Tags = Map.Map String String
 
-data MetricType = Gauge | Counter | Timer deriving (Show, Eq)
+data MetricType = Gauge | Counter | Timer | Histogram deriving (Show, Eq)
 data Metric = Metric MetricType Name Value Tags deriving Eq
 
 instance Show Metric where

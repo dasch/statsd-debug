@@ -58,4 +58,5 @@ mapType :: String -> MetricType
 mapType "g" = Gauge
 mapType "ms" = Timer
 mapType "c" = Counter
+mapType "h" = Histogram
 mapType x = error $ "invalid type: " ++ x
